@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -131,23 +132,23 @@
                 overflow:hidden;
             }
         </style>
-    </head>
-    <body style="background-image: url('https://lexleader.net/wp-content/uploads/2015/11/Jewelry-with-black-background.jpg');background-repeat:no-repeat;background-position: center;background-size: cover;height:100,filter:contrast(100%)">
-        
-        
-        <div class="login-cont" style="">
+    <body style="background-image: url('https://lexleader.net/wp-content/uploads/2015/11/Jewelry-with-black-background.jpg');background-repeat:no-repeat;background-position: center;background-size: cover;height:100%,filter:contrast(100%)">
+    <div class="login-cont">
+        <form action="/post" method="post">
             <h1 class="login">Login</h1>
-            <input class="user" type="text" placeholder="Username">
+            <label for="name" style="color:aliceblue">Username: </label>
+            <input class="user" id="name" type="text" name="name" placeholder="Username">
             <span></span> <!-- Error message for username -->
-            <input class="pwd" type="text" placeholder="Password">
+            <label for="pwd" style="color:aliceblue">Password: </label>
+            <input class="pwd" id="pwd" type="password" name="pwd" placeholder="Password">
             <span></span> <!-- Error message for Password -->
-            <button id="button" class="e">Sign in</button>
+            <button id="button" class="e" type="submit">Sign in</button>
             <p class="cb">Remember me<input type="checkbox" id="check" name="check"></p>
-            <p class="signup">New to this page? <a href="task.html" class="g">Sign-up</a></p>
-            
-        </div>
-        <script src="validation.js"></script>
-        <!--stick content of upload.js as it is here to upload file in same page-->
-    </body>
+            <p class="signup">New to this page? <a href="task2.html" class="g">Sign-up</a></p>
+        </form>
+    </div>
+    <script src="validation.js"></script>
+    <!--stick content of upload.js as it is here to upload file in same page-->
+</body>
     
 </html>
