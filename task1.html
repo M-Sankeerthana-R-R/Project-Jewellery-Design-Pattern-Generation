@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Grey+Qo&display=swap" rel="stylesheet">
+
+        <title>Login</title>
+        <link rel="icon" type="image/x-icon" href="favicon (1).ico">
+        
+        <style>
+            
+            .title{
+                display:block;
+                text-align:center;
+                color:rgb(81, 57, 129);
+                font-size:75px;
+                font-family:"Dancing Script", cursive;
+                font-weight: bold;
+                font-style: italic;
+                margin-top:30px;
+            }
+            
+
+            .login{
+                margin:auto;
+                margin-top:30px;
+                text-align: center;
+                display:block;
+                color:aliceblue;
+                margin-bottom: 30px;
+                font-size: 35px;
+                font-family:"Dancing Script", cursive;
+            }
+            .user,
+            .pwd{
+                margin:auto;
+                display:block;
+                width:250px;
+                height:50px;
+                border-radius:10px;
+                border-width: 1px;
+                
+                margin-bottom: 30px;
+                text-align: center;
+                opacity:0.8;
+            }
+            .login-cont{
+                float:right;
+                padding:20px 50px;
+                margin-left: 100px;
+                margin-right: 30px;
+                display:block;
+                margin-top: 170px;
+                margin-bottom:200px;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                background-color: rgb(12, 12, 12);
+                backdrop-filter: blur(50px);
+                opacity:0;
+                animation:fadeIn 1s ease-in forwards;
+            }
+            @keyframes fadeIn{
+                0%{
+                    opacity:0;
+                }
+                100%{
+                    opacity:1;
+                }
+            }
+            .e{
+                float:right;
+                color: rgb(0, 0, 0);
+                background-color:rgb(216, 223, 245);
+                text-align: center;
+                border-radius: 15px;
+                border:none;
+                width:60px;
+                height:25px;
+                display:block;
+                margin-bottom: 30px;
+                font-size: 12px;
+                
+                font-family:"Dancing Script", cursive;
+                
+            }
+            .e:hover{
+                opacity:0.8;
+                cursor:pointer;
+            }
+            .e:active{
+                opacity:0.2;
+                cursor:pointer;
+            }
+            
+            .signup{
+                float:right;
+                font-weight: lighter;
+                font-size: small;
+                margin-top: 0px;
+                display:inline-block;
+                color:aliceblue;
+                font-family:"Dancing Script", cursive;
+            }
+            .g{
+                
+                font-weight:bolder;
+                font-size: small;
+                margin-top: 50px;;
+                display:inline-block;
+                margin-top:30px;
+                color:rgb(91, 116, 140);
+            }
+            .g:hover{
+                opacity:0.7;
+                cursor:pointer;
+            }
+            .g:active{
+                opacity:0.2;
+                cursor:pointer;
+            }
+            .cb{
+                font-size:smaller;
+                font-weight:10px;
+                margin-top:35px;
+                margin-left:10px;
+                color:aliceblue;
+                font-family:"Dancing Script", cursive;
+            }
+            html{
+                overflow:hidden;
+            }
+        </style>
+    </head>
+    <body style="background-image: url('https://lexleader.net/wp-content/uploads/2015/11/Jewelry-with-black-background.jpg');background-repeat:no-repeat;background-position: center;background-size: cover;height:100,filter:contrast(100%)">
+        
+        
+        <div class="login-cont" style="">
+            <h1 class="login">Login</h1>
+            <input class="user" type="text" placeholder="Username">
+            <span></span> <!-- Error message for username -->
+            <input class="pwd" type="text" placeholder="Password">
+            <span></span> <!-- Error message for Password -->
+            <button id="button" class="e">Sign in</button>
+            <p class="cb">Remember me<input type="checkbox" id="check" name="check"></p>
+            <p class="signup">New to this page? <a href="task.html" class="g">Sign-up</a></p>
+            
+        </div>
+        <script src="validation.js"></script>
+        <!--stick content of upload.js as it is here to upload file in same page-->
+    </body>
+    
+</html>

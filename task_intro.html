@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTRO</title>
+    <style>
+        
+
+        header {
+            height: 50px;
+            background-color: #333333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .login,.upload{
+            color:antiquewhite;
+            margin-right: 10px;
+        }
+            
+        .login:hover,.upload:hover{
+            opacity:0.7;
+            cursor:pointer;
+        }
+        .login:active,.upload:active{
+            opacity:0.3;
+            cursor:pointer;
+        }
+        .title{
+            font-family:'Times New Roman', Times, serif;
+            color:rgb(28, 2, 48);
+            margin-top: 320px;
+            font-size: 55px;
+            margin-bottom: 10px;
+                
+        }
+        .tag{
+            margin-top: 10px;;
+            margin-left:70px;;
+            font-size:larger;
+        }
+        .title-cont{
+            transform:translateX(-100%);
+            animation:slideIn 2s ease-out forwards;
+            pointer-events:none;
+        }
+            
+        @keyframes slideIn{
+            from{
+                transform:translateX(-100%);
+            }
+            to{
+                transform:translateX(0%);
+            }
+        }
+        .gif-container {
+            display: flex;
+            height: 430px;
+            padding-top: 40px;
+            overflow:hidden;
+            position:absolute;
+            left:0;
+            right:0;
+        }
+
+        .gif-container img {
+            height: 100%; 
+            width:100%;
+            width: auto;
+            flex-shrink: 0;
+        }
+        html{
+            overflow:hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="
+    background-color: rgb(9, 9, 9);
+    color:antiquewhite;
+    display:flex;
+    flex-direction: row;
+    height:50px;
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    justify-content: space-between;
+    align-items: center;
+    ">
+        <div style="color:rgb(139, 135, 121);font-size: larger;font-weight: bold;width:100px;margin-left: 10px;">My Site</div>
+        <div style="color:antiquewhite;opacity:0.8;font-size: small;width:300px;margin:auto;"><h10>~A software that gives life to your imagination!</h10></div>
+        <!-- <div style="width:100px;margin-right: 10px;"><a href="task1.html" class="login">Login</a></div> -->
+        <!-- <div style="width:100px;margin-right: 10px;"><a href="task2.html" class="Upload">Upload</a></div> -->
+        <a class="login" href="task1.html">Login</a>
+        <a class="upload" href="task2.html">Upload</a>
+    </div>
+    
+    
+
+    <div class="gif-container">
+        <img src="https://i.pinimg.com/originals/e1/0f/c0/e10fc00364aca6c779eda9568f516d63.gif" alt="GIF 2">
+        <img src="https://www.bing.com/th/id/OGC.dfd92212840068a30fe129154934e3de?pid=1.7&rurl=https%3a%2f%2fwww.hunarcourses.com%2fblog%2fwp-content%2fuploads%2f2020%2f12%2fGIF-2.gif&ehk=hWpXZNE%2fLLaqUu1SwqHWLxypoobrrFM5EugfBlctqhk%3d" alt="GIF 1">
+        
+        <img src="https://www.bing.com/th/id/OGC.1d53fb526414e94fe9e319d8f4a21615?pid=1.7&rurl=https%3a%2f%2fmedia.giphy.com%2fmedia%2f9XJZiXkJzjFwA%2fgiphy.gif&ehk=DTPtRQhykKLPlxySKA0dlHrjm0ukO%2fj9Fm46fFvSyNc%3d" alt="GIF 3" >
+        <!--<img src="https://www.bing.com/th/id/OGC.e67814e9f7a2ad34679b07d4e644eef9?pid=1.7&rurl=https%3a%2f%2fmedia1.tenor.com%2fimages%2fe67814e9f7a2ad34679b07d4e644eef9%2ftenor.gif%3fitemid%3d13758096&ehk=x4bEWRPcUUE%2fkbMGzFQORaVSys%2fKF257EeBrkjVkS%2fA%3d" alt="GIF 2">
+        <img src="https://th.bing.com/th/id/OIP.VRtjx8AKIm4C_MEqU4F8IgAAAA?w=117&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="GIF 2">-->
+    </div>
+    <div style="
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin:auto;
+    ">
+        
+        <div class="title-cont" style="margin:auto;padding-top: 200px;">
+            <h1 class="title">PAGE NAME</h1>
+            <h10 class="tag">~A Jewellery Designer~</h10>
+        </div>
+        
+    </div>
+</body>
+</html>
