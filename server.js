@@ -1,14 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const port = 3019;
+const port = 3000;
 
 const app = express();
 app.use(express.static(__dirname));
 app.use(express.urlencoded({ extended: true }));
 
 // Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/usersData', {
+mongoose.connect('mongodb://127.0.0.1:27017/Data', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -53,10 +53,10 @@ app.post('/post', async (req, res) => {
 app.post('/signup', async (req, res) => {
   const { username, email, phone, pwd } = req.body;
   const user = new User({
-    username,
+    username: username,
     password: pwd,
-    email,
-    phone
+    email: email,
+    phone: phone
   });
   await user.save();
   console.log(user);

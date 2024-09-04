@@ -6,7 +6,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Grey+Qo&display=swap" rel="stylesheet">
-
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
         <link rel="icon" type="image/x-icon" href="favicon (1).ico">
         
@@ -33,19 +34,6 @@
                 margin-bottom: 30px;
                 font-size: 35px;
                 font-family:"Dancing Script", cursive;
-            }
-            .user,
-            .pwd{
-                margin:auto;
-                display:block;
-                width:250px;
-                height:50px;
-                border-radius:10px;
-                border-width: 1px;
-                
-                margin-bottom: 30px;
-                text-align: center;
-                opacity:0.8;
             }
             .login-cont{
                 float:right;
@@ -132,23 +120,57 @@
                 overflow:hidden;
             }
         </style>
-    <body style="background-image: url('https://lexleader.net/wp-content/uploads/2015/11/Jewelry-with-black-background.jpg');background-repeat:no-repeat;background-position: center;background-size: cover;height:100%,filter:contrast(100%)">
-    <div class="login-cont">
-        <form action="/post" method="post">
+    </head>
+    <body style="background-image: url('https://lexleader.net/wp-content/uploads/2015/11/Jewelry-with-black-background.jpg');background-repeat:no-repeat;background-position: center;background-size: cover;height:100,filter:contrast(100%)">
+        
+        
+        <div class="login-cont" style="">
             <h1 class="login">Login</h1>
-            <label for="name" style="color:aliceblue">Username: </label>
-            <input class="user" id="name" type="text" name="name" placeholder="Username">
-            <span></span> <!-- Error message for username -->
-            <label for="pwd" style="color:aliceblue">Password: </label>
-            <input class="pwd" id="pwd" type="password" name="pwd" placeholder="Password">
-            <span></span> <!-- Error message for Password -->
-            <button id="button" class="e" type="submit">Sign in</button>
-            <p class="cb">Remember me<input type="checkbox" id="check" name="check"></p>
+            <form action="" method="get">
+               
+                <input id="username" placeholder="username" type="text"  required />
+                <br><br><br>
+                <input id="password" placeholder="password" type="password" minlength="6" maxlength="15" required />
+                <br><br>
+            </form>
+            
+            <span><button id="button" class="e" type="submit">Sign in</button></span>
+
+            <span><p class="cb">Remember me<input type="checkbox" id="check" name="check"></p></span>
             <p class="signup">New to this page? <a href="task2.html" class="g">Sign-up</a></p>
-        </form>
-    </div>
-    <script src="validation.js"></script>
-    <!--stick content of upload.js as it is here to upload file in same page-->
-</body>
+            
+        </div>
+        <script>
+            document.getElementById("button").onclick = function(event) {
+                event.preventDefault();
+                var form = document.getElementById("loginForm");
+                var usernameInput = document.querySelector("input[placeholder='username']");
+                var passwordInput = document.getElementById("password");
+
+                // Trim spaces from the start and end of the username and password
+                var name = usernameInput.value.trim();
+                var pwd = passwordInput.value.trim();
+                if (name === "") {
+                    alert("Username cannot be empty or consist only of spaces.");
+                    return;
+                }
+                if (pwd === "") {
+                    alert("Password cannot be empty or consist only of spaces.");
+                    return;
+                }
+                if (pwd.length < passwordInput.minLength) {
+                    alert(`Password must be at least ${passwordInput.minLength} characters long.`);
+                } 
+                else if (pwd.length > passwordInput.maxLength) {
+                    alert(`Password cannot be longer than ${passwordInput.maxLength} characters.`);
+                }
+                else{
+                    alert("Sign-in Successful");
+                    form.submit();
+                }
+            };
+        </script>
+        <!--stick content of upload.js as it is here to upload file in same page-->
+    </body>
     
 </html>
