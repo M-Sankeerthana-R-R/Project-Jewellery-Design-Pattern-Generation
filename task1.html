@@ -1,176 +1,169 @@
-
 <!DOCTYPE html>
 <html>
-    <head>
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Grey+Qo&display=swap" rel="stylesheet">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
-        <link rel="icon" type="image/x-icon" href="favicon (1).ico">
-        
-        <style>
-            
-            .title{
-                display:block;
-                text-align:center;
-                color:rgb(81, 57, 129);
-                font-size:75px;
-                font-family:"Dancing Script", cursive;
-                font-weight: bold;
-                font-style: italic;
-                margin-top:30px;
-            }
-            
-
-            .login{
-                margin:auto;
-                margin-top:30px;
-                text-align: center;
-                display:block;
-                color:aliceblue;
-                margin-bottom: 30px;
-                font-size: 35px;
-                font-family:"Dancing Script", cursive;
-            }
-            .login-cont{
-                float:right;
-                padding:20px 50px;
-                margin-left: 100px;
-                margin-right: 30px;
-                display:block;
-                margin-top: 170px;
-                margin-bottom:200px;
-                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                background-color: rgb(12, 12, 12);
-                backdrop-filter: blur(50px);
-                opacity:0;
-                animation:fadeIn 1s ease-in forwards;
-            }
-            @keyframes fadeIn{
-                0%{
-                    opacity:0;
-                }
-                100%{
-                    opacity:1;
-                }
-            }
-            .e{
-                float:right;
-                color: rgb(0, 0, 0);
-                background-color:rgb(216, 223, 245);
-                text-align: center;
-                border-radius: 15px;
-                border:none;
-                width:60px;
-                height:25px;
-                display:block;
-                margin-bottom: 30px;
-                font-size: 12px;
-                
-                font-family:"Dancing Script", cursive;
-                
-            }
-            .e:hover{
-                opacity:0.8;
-                cursor:pointer;
-            }
-            .e:active{
-                opacity:0.2;
-                cursor:pointer;
-            }
-            
-            .signup{
-                float:right;
-                font-weight: lighter;
-                font-size: small;
-                margin-top: 0px;
-                display:inline-block;
-                color:aliceblue;
-                font-family:"Dancing Script", cursive;
-            }
-            .g{
-                
-                font-weight:bolder;
-                font-size: small;
-                margin-top: 50px;;
-                display:inline-block;
-                margin-top:30px;
-                color:rgb(91, 116, 140);
-            }
-            .g:hover{
-                opacity:0.7;
-                cursor:pointer;
-            }
-            .g:active{
-                opacity:0.2;
-                cursor:pointer;
-            }
-            .cb{
-                font-size:smaller;
-                font-weight:10px;
-                margin-top:35px;
-                margin-left:10px;
-                color:aliceblue;
-                font-family:"Dancing Script", cursive;
-            }
-            html{
-                overflow:hidden;
-            }
-        </style>
-    </head>
-    <body style="background-image: url('https://lexleader.net/wp-content/uploads/2015/11/Jewelry-with-black-background.jpg');background-repeat:no-repeat;background-position: center;background-size: cover;height:100,filter:contrast(100%)">
-        
-        
-        <div class="login-cont" style="">
-            <h1 class="login">Login</h1>
-            <form action="" method="get">
-               
-                <input id="username" placeholder="username" type="text"  required />
-                <br><br><br>
-                <input id="password" placeholder="password" type="password" minlength="6" maxlength="15" required />
-                <br><br>
-            </form>
-            
-            <span><button id="button" class="e" type="submit">Sign in</button></span>
-
-            <span><p class="cb">Remember me<input type="checkbox" id="check" name="check"></p></span>
-            <p class="signup">New to this page? <a href="task2.html" class="g">Sign-up</a></p>
-            
-        </div>
-        <script>
-            document.getElementById("button").onclick = function(event) {
-                event.preventDefault();
-                var form = document.getElementById("loginForm");
-                var usernameInput = document.querySelector("input[placeholder='username']");
-                var passwordInput = document.getElementById("password");
-
-                // Trim spaces from the start and end of the username and password
-                var name = usernameInput.value.trim();
-                var pwd = passwordInput.value.trim();
-                if (name === "") {
-                    alert("Username cannot be empty or consist only of spaces.");
-                    return;
-                }
-                if (pwd === "") {
-                    alert("Password cannot be empty or consist only of spaces.");
-                    return;
-                }
-                if (pwd.length < passwordInput.minLength) {
-                    alert(`Password must be at least ${passwordInput.minLength} characters long.`);
-                } 
-                else if (pwd.length > passwordInput.maxLength) {
-                    alert(`Password cannot be longer than ${passwordInput.maxLength} characters.`);
-                }
-                else{
-                    alert("Sign-in Successful");
-                    form.submit();
-                }
-            };
-        </script>
-        <!--stick content of upload.js as it is here to upload file in same page-->
-    </body>
+<head>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Grey+Qo&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="favicon (1).ico">
+    
+    <style>
+        
+        .title{
+            display:block;
+            text-align:center;
+            color:rgb(81, 57, 129);
+            font-size:75px;
+            font-family:"Dancing Script", cursive;
+            font-weight: bold;
+            font-style: italic;
+            margin-top:30px;
+        }
+        
+
+        .login{
+            margin:auto;
+            margin-top:30px;
+            text-align: center;
+            display:block;
+            color:aliceblue;
+            margin-bottom: 30px;
+            font-size: 35px;
+            font-family:"Dancing Script", cursive;
+        }
+        .login-cont {
+            float: right;
+            border: 2px solid aliceblue; /* Add a solid border with a width */
+            border-radius: 10px;
+            padding: 20px 50px;
+            margin-left: 100px;
+            margin-right: 30px;
+            display: block;
+            margin-top: 170px;
+            margin-bottom: 200px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: rgb(12, 12, 12);
+            backdrop-filter: blur(50px);
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        @keyframes fadeIn{
+            0%{
+                opacity:0;
+            }
+            100%{
+                opacity:1;
+            }
+        }
+        .e{
+            float:right;
+            color: rgb(0, 0, 0);
+            background-color:rgb(216, 223, 245);
+            text-align: center;
+            border-radius: 15px;
+            border:none;
+            width:60px;
+            height:25px;
+            display:block;
+            margin-bottom: 30px;
+            font-size: 12px;
+            
+            font-family:"Dancing Script", cursive;
+            
+        }
+        .e:hover{
+            opacity:0.8;
+            cursor:pointer;
+        }
+        .e:active{
+            opacity:0.2;
+            cursor:pointer;
+        }
+        
+        .signup{
+            float:right;
+            font-weight: lighter;
+            font-size: small;
+            margin-top: 0px;
+            display:inline-block;
+            color:aliceblue;
+            font-family:"Dancing Script", cursive;
+        }
+        .g{
+            
+            font-weight:bolder;
+            font-size: small;
+            margin-top: 50px;;
+            display:inline-block;
+            margin-top:30px;
+            color:rgb(91, 116, 140);
+        }
+        .g:hover{
+            opacity:0.7;
+            cursor:pointer;
+        }
+        .g:active{
+            opacity:0.2;
+            cursor:pointer;
+        }
+        .cb{
+            font-size:smaller;
+            font-weight:10px;
+            margin-top:35px;
+            margin-left:10px;
+            color:aliceblue;
+            font-family:"Dancing Script", cursive;
+        }
+        html{
+            overflow:hidden;
+        }
+    </style>
+</head>
+<body style="background-image: url('https://lexleader.net/wp-content/uploads/2015/11/Jewelry-with-black-background.jpg');background-repeat:no-repeat;background-position: center;background-size: cover;height:100%;filter:contrast(100%)">
+    
+    <div class="login-cont">
+        <h1 class="login">Login</h1>
+        <form id="loginForm" action="/post" method="post">
+            <input name="username" placeholder="username" type="text" required />
+            <br><br><br>
+            <input name="password" placeholder="password" type="password" minlength="6" maxlength="15" required />
+            <br><br>
+            <button type="submit" class="e">Sign in</button>
+        </form>
+        <p class="signup">New to this page? <a href="/task2.html" class="g">Sign-up</a></p>
+    </div>
+    <script>
+        document.getElementById("loginForm").onsubmit = function(event) {
+            event.preventDefault();
+            var form = document.getElementById("loginForm");
+            var usernameInput = form.querySelector("input[name='username']");
+            var passwordInput = form.querySelector("input[name='password']");
+
+            var username = usernameInput.value.trim();
+            var password = passwordInput.value.trim();
+
+            if (username === "") {
+                alert("Username cannot be empty or consist only of spaces.");
+                return;
+            }
+            if (password === "") {
+                alert("Password cannot be empty or consist only of spaces.");
+                return;
+            }
+            if (password.length < passwordInput.minLength) {
+                alert(`Password must be at least ${passwordInput.minLength} characters long.`);
+                return;
+            } 
+            if (password.length > passwordInput.maxLength) {
+                alert(`Password cannot be longer than ${passwordInput.maxLength} characters.`);
+                return;
+            }
+            form.submit();
+        };
+    </script>
+</body>
 </html>

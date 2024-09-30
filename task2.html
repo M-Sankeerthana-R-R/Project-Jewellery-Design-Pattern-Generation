@@ -4,7 +4,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Grey+Qo&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign-up</title>
     <link rel="icon" type="image/x-icon" href="favicon (1).ico">
     
@@ -34,10 +35,15 @@
             text-align: center;
             opacity:0.8;
         }
-
+        .container{
+            margin-top: -95px;
+        }
         .Sign-up-cont{
+           
             float:right;
-            padding:10px 30px;
+            border: 2px solid aliceblue; /* Add a solid border with a width */
+            border-radius: 10px;
+            padding:10px 40px 10px ;
             margin-left: 100px;
             margin-right: 30px;
             text-align: center;
@@ -87,68 +93,67 @@
     </style>
 </head>
 <body style="background-image: url('https://lexleader.net/wp-content/uploads/2015/11/Jewelry-with-black-background.jpg');background-repeat:no-repeat;background-position: center;background-size: cover;height:100%;filter:contrast(100%);padding-top: 150px;">
-    
-    <div class="Sign-up-cont">
-        <h1 class="sign-up">Sign-up</h1>
-        <form id="signupForm" action="" method="get">
-            <input id="username" placeholder="username" type="text" required />
-            <br><br><br>
-            <input id="email" placeholder="email" type="email" required />
-            <br><br><br>
-            <input id="password" placeholder="password" type="password" minlength="6" maxlength="15" required />
-            <br><br><br>
-            <input id="c-password" placeholder="confirm password" type="password" minlength="6" maxlength="15" required />
-            <br><br><br>
-            <span><button id="button" class="e" type="submit">Sign up</button></span>
-        </form>
+    <div class="container">
+        <div class="Sign-up-cont">
+            <h1 class="sign-up">Sign-up</h1>
+            <form id="signupForm" action="/signup" method="post">
+                <input name="username" placeholder="username" type="text" required />
+                <br><br><br>
+                <input name="email" placeholder="email" type="email" required />
+                <br><br><br>
+                <input name="password" placeholder="password" type="password" minlength="6" maxlength="15" required />
+                <br><br><br>
+                <input name="confirm_password" placeholder="confirm password" type="password" minlength="6" maxlength="15" required />
+                <br><br><br>
+                <button type="submit" id="button">Sign up</button>
+            </form>
+        </div>
     </div>
 
     <script>
-        document.getElementById("button").onclick = function(event) {
+        document.getElementById("signupForm").onsubmit = function(event) {
             event.preventDefault();
             var form = document.getElementById("signupForm");
-            var usernameInput = document.getElementById("username");
-            var emailInput = document.getElementById("email");
-            var passwordInput = document.getElementById("password");
-            var confirmPasswordInput = document.getElementById("c-password");
+            var usernameInput = form.querySelector("input[name='username']");
+            var emailInput = form.querySelector("input[name='email']");
+            var passwordInput = form.querySelector("input[name='password']");
+            var confirmPasswordInput = form.querySelector("input[name='confirm_password']");
 
-            // Trim spaces from the start and end of the username and password
-            var name = usernameInput.value.trim();
-            var pwd = passwordInput.value.trim();
-            var email=emailInput.value.trim();
-            var c_pwd = confirmPasswordInput.value.trim();
-            if (name === "") {
+            var username = usernameInput.value.trim();
+            var email = emailInput.value.trim();
+            var password = passwordInput.value.trim();
+            var confirmPassword = confirmPasswordInput.value.trim();
+
+            if (username === "") {
                 alert("Username cannot be empty or consist only of spaces.");
-                return;
-            }
-            if (pwd === "") {
-                alert("Password cannot be empty or consist only of spaces.");
                 return;
             }
             if (email === "") {
                 alert("Email cannot be empty or consist only of spaces.");
                 return;
             }
-            if (c_pwd === "") {
+            if (password === "") {
+                alert("Password cannot be empty or consist only of spaces.");
+                return;
+            }
+            if (confirmPassword === "") {
                 alert("Confirm Password cannot be empty or consist only of spaces.");
                 return;
             }
-            if (pwd !== c_pwd) {
+            if (password !== confirmPassword) {
                 alert("Passwords do not match.");
                 return;
             }
-            if (pwd.length < passwordInput.minLength) {
+            if (password.length < passwordInput.minLength) {
                 alert(`Password must be at least ${passwordInput.minLength} characters long.`);
+                return;
             } 
-            else if (pwdd.length > passwordInput.maxLength) {
+            if (password.length > passwordInput.maxLength) {
                 alert(`Password cannot be longer than ${passwordInput.maxLength} characters.`);
-            } 
-            else if (form.checkValidity()) {
-                alert("Sign-up Successful");
-                form.submit();
+                return;
             }
+            form.submit();
         };
     </script>
 </body>
-
 </html>

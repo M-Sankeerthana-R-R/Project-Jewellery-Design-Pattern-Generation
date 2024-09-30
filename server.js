@@ -1,14 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const port = 3000;
+const port = 3019;
 
 const app = express();
 app.use(express.static(__dirname));
 app.use(express.urlencoded({ extended: true }));
-
-// Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/Data', {
+mongoose.connect('mongodb://localhost:27017/UserData', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -16,52 +14,66 @@ const db = mongoose.connection;
 db.once('open', () => {
   console.log('MongoDB connection successful');
 });
-
-// Define User Schema
+db.on('error', (err) => {
+  console.error('MongoDB connection error:', err);
+});
 const userSchema = new mongoose.Schema({
-  username: String,
+  username: { type: String, unique: true, required: true },
   password: String,
-  email: String,
+  email: { type: String, unique: true, required: true },
   phone: String
 });
 
 const User = mongoose.model('User', userSchema);
-
-// Serve the login page
-app.get('/', (req, res) => {
+app.get('/task1.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'task1.html'));
 });
-
-// Serve the signup page
 app.get('/task2.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'task2.html'));
 });
-
-// Handle login form submission
 app.post('/post', async (req, res) => {
-  const { name, pwd } = req.body;
-  const user = new User({
-    username: name,
-    password: pwd
-  });
-  await user.save();
-  console.log(user);
-  res.send('Login form submission successful');
+  try {
+    const { username, password } = req.body;
+    console.log('Login attempt:', { username, password });
+    
+    const user = await User.findOne({ username, password });
+    
+    if (user) {
+      res.send('Login Successful');
+    } else {
+      res.send('Register yourself!!');
+    }
+  } catch (error) {
+    console.error('Error during login:', error);
+    res.status(500).send('Server error');
+  }
+});
+app.post('/signup', async (req, res) => {
+  try {
+    const { username, email, password, confirm_password } = req.body;
+    console.log('Signup attempt:', { username, email, password, confirm_password }); 
+    
+    if (password !== confirm_password) {
+      return res.send('Passwords do not match');
+    }
+    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+    if (existingUser) {
+      return res.send('Username or email already exists');
+    }
+    const user = new User({
+      username,
+      password,
+      email
+    });
+    await user.save();
+    console.log('User saved:', user); 
+    res.send('Signup Successful');
+  } catch (error) {
+    console.error('Error during signup:', error);
+    res.status(500).send('Server error');
+  }
 });
 
-// Handle signup form submission
-app.post('/signup', async (req, res) => {
-  const { username, email, phone, pwd } = req.body;
-  const user = new User({
-    username: username,
-    password: pwd,
-    email: email,
-    phone: phone
-  });
-  await user.save();
-  console.log(user);
-  res.send('Signup form submission successful');
-});
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
